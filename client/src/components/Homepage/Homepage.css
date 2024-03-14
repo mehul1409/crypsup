@@ -1,0 +1,49 @@
+
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .center-content {
+    text-align: center;
+  }
+  
+  .icon {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+  }
+  
+  .project-name {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .description {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #007bff; /* Adjust color as needed */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Adjust hover color as needed */
+  }
+  
