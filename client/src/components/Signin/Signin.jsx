@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import './signin.css';
 
 const Signin = () => {
     const [email, setemail] = useState('');
@@ -40,7 +41,9 @@ const Signin = () => {
 
                 <button type='submit'>signup</button>
 
+                <div className='forgotpasswordbutton'>
                 <Link to='/forgotpassword'>Forgot password</Link>
+                </div>
                 <p>Don't Have an account? <Link to='/signup'>signup</Link></p>
 
             </form>

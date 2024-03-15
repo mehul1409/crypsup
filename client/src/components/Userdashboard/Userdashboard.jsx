@@ -1,5 +1,6 @@
 import { useNavigate, Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
+import './userdashboard.css'
 
 import axios from 'axios';
 
@@ -39,20 +40,20 @@ const Userdashboard = () => {
       })
   }
   return (
-    <div>
-      <button onClick={handlelogout}>logout</button>
-      <Link to='/userdashboard/addproject'>
-        <div>Add project</div>
-      </Link>
-      <div>
-        <ul>
+    <div className='userdashboard'>
+      <button onClick={handlelogout} className='logoutbutton'>logout</button>
+      <div className="addprojectbutton">
+        <Link to='/userdashboard/addproject'>
+          Add project
+        </Link>
+      </div>
+      <div className='userproject'>
           {projects.map(project => (
-            <div key={project._id}>
-              <div>{project.title}</div>
-              <div>{project.body}</div>
+            <div key={project._id} className='projectbox'>
+              <div className='projecttitle'>{project.title}</div>
+              <div className='projectbody'>{project.body}</div>
             </div>
           ))}
-        </ul>
       </div>
     </div>
   )

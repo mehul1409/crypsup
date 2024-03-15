@@ -1,0 +1,15 @@
+
+.forgotpasswordbutton {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .forgotpasswordbutton a{
+    text-decoration: none;
+  }
+  
+  .forgotpasswordbutton:hover {
+    text-decoration: underline;
+  }
+
+  

@@ -1,0 +1,45 @@
+
+.userdashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoutbutton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.addprojectbutton {
+  margin-bottom: 10px;
+}
+
+.addprojectbutton a {
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.userproject {
+  width: 100%;
+}
+
+.projectbox {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.projecttitle {
+  font-weight: bold;
+}
+
+.projectbody {
+  margin-top: 5px;
+}
