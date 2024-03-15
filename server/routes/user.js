@@ -39,11 +39,12 @@ userrouter.post('/login', async (req, res) => {
     }
 
     const token = jwt.sign({
-        username: user.username
+        username: user.username,
+        email: user.email,
     }, "mehulbansal");
 
     res.cookie('token', token, { httpOnly: true, message: 360000 });
-    return res.json({ status: true, message: "login successfully!" });
+    return res.json({ status: true, message: "login successfully!",token });
 
 })
 
@@ -93,7 +94,7 @@ userrouter.post('/resetpassword/:token', async (req, res) => {
     const { password } = req.body;
  
     try {
-        const decoded = await jwt.verify(token, 'jwttoken');``
+        const decoded = await jwt.verify(token, 'jwttoken');
         const id = decoded.id;
 
         const hashedpassword = await bcrypt.hash(password, 10)

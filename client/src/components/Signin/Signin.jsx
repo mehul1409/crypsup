@@ -17,6 +17,8 @@ const Signin = () => {
             email,
             password,
         }).then(response => {
+            const { token } = response.data;
+            localStorage.setItem('token', token);
             if (response.data.status) {
                 navigate('/userdashboard')
             }
