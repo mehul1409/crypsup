@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import Axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import './signin.css';
 
-const Signin = () => {
+const Signinsupporter = () => {
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
 
@@ -14,14 +13,12 @@ const Signin = () => {
     const handlesubmit = (e) => {
         e.preventDefault();
 
-        Axios.post('http://localhost:3000/auth/login', {
+        Axios.post('http://localhost:3000/auth/supporterlogin', {
             email,
             password,
         }).then(response => {
-            const { token } = response.data;
-            localStorage.setItem('token', token);
             if (response.data.status) {
-                navigate('/userdashboard')
+                navigate('/supporterdashboard')
             }
         }).catch(err => {
             console.log(err);
@@ -30,7 +27,7 @@ const Signin = () => {
 
     return (
         <div className='sign-up-container'>
-            <h2>User Login</h2>
+            <h2>Supporter Login</h2>
             <form className='sign-up-form' onSubmit={handlesubmit}>
 
                 <label htmlFor="email">Email:</label>
@@ -41,14 +38,15 @@ const Signin = () => {
 
                 <button type='submit'>signup</button>
 
-                <div className='forgotpasswordbutton'>
+                {/* <div className='forgotpasswordbutton'>
                 <Link to='/forgotpassword'>Forgot password</Link>
-                </div>
-                <p>Don't Have an account? <Link to='/signup'>signup</Link></p>
+                </div> */}
+
+                <p>Don't Have an account? <Link to='/supportersignup'>signup</Link></p>
 
             </form>
         </div>
     )
 }
 
-export default Signin;
+export default Signinsupporter;

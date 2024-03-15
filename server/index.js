@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 // import dotenv from 'dotenv';
 // dotenv.config();
 import { userrouter } from './routes/user.js';
-import {projectrouter} from './routes/project.js';
+import { supporterrouter } from './routes/supporter.js'
+import { projectrouter } from './routes/project.js';
 import cors from 'cors';
 
 const PORT = process.env.PORT || 3000;
@@ -18,11 +19,12 @@ app.get('/', (req, res) => {
 
 app.use(express.json());
 app.use(cors({
-    origin:["http://localhost:5173"],
-    credentials:true
+    origin: ["http://localhost:5173"],
+    credentials: true
 }));
 app.use('/auth', userrouter);
-app.use('/username',projectrouter);
+app.use('/username', projectrouter);
+app.use('/auth', supporterrouter);
 
 app.listen(PORT, (err) => {
     if (err) {

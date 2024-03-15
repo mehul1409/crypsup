@@ -12,7 +12,7 @@ const Homepage = () => {
         <p className="description">A place where you get what you deserve</p>
         <div className="buttons">
           <Link to='/signup' className="button">Register as a Creator</Link>
-          <a href="#" className="button">Register as a Supporter</a>
+          <Link to='/supportersignup' className="button">Register as a Supporter</Link>
         </div>
       </div>
     </div>

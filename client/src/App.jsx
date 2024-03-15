@@ -7,7 +7,10 @@ import Forgotpassword from './components/Forgotpassword/Forgotpassword.jsx';
 import Resetpassword from './components/Resetpassword/Resetpassword.jsx';
 import Userdashboard from './components/Userdashboard/Userdashboard.jsx';
 import CreateProject from './components/CreateProject/CreateProject.jsx';
-                           
+import Signupsupporter from './components/Supportter/Signupsupporter.jsx';
+import Signinsupporter from './components/Supportter/Signinsupporter.jsx';
+import Supporterdashboard from './components/Supporterdashboard/supporterdashboard.jsx';
+
 function App() {
 
   return (
@@ -21,6 +24,9 @@ function App() {
           <Route path="/resetpassword/:token" element={<Resetpassword />}></Route>
           <Route path='/userdashboard' element={<Userdashboard />} />
           <Route path='/userdashboard/addproject' element={<CreateProject />} />
+          <Route path='/supportersignup' element={<Signupsupporter />} />
+          <Route path='/Signinsupporter' element={<Signinsupporter />} />
+          <Route path='/supporterdashboard' element={<Supporterdashboard />} />
         </Routes>
       </BrowserRouter>
     </>

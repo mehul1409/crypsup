@@ -28,7 +28,7 @@ const Signup = () => {
 
     return (
         <div className='sign-up-container'>
-            <h2>Signup</h2>
+            <h2>User Signup</h2>
             <form className='sign-up-form' onSubmit={handlesubmit}>
                 <label htmlFor="username">username:</label>
                 <input type="text" placeholder='username' onChange={(e) => setusername(e.target.value)} />
