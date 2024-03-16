@@ -27,14 +27,16 @@ const Explorepage = () => {
   return (
     <div className='supporterdashboard'>
       <div className="exploreheader">
-      <div className='logo'>
-        <img src="/assets/crypsup.png" alt="" />
-        <div className='headerheading'>CRYPSUP</div>
+        <div className='logo'>
+          <img src="/assets/crypsup.png" alt="" />
+          <div className='headerheading'>CRYPSUP</div>
+        </div>
+        <div className="exploreheading">MEET YOUR CREATORS?</div>
+        <div className='goback'>
+          <Link to='/supporterdashboard'>GO BACK</Link>
+        </div>
       </div>
-      <div className="exploreheading">MEET YOUR CREATORS?</div>
-      <div className='goback'>
-        <Link to='/supporterdashboard'>GO BACK</Link>
-      </div>
+      <div className="userproject">
       </div>
       <div className='userproject'>
         {projects.map(project => (

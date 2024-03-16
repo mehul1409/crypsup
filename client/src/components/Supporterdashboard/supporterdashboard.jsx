@@ -25,7 +25,7 @@ const supporterdashboard = () => {
         <section className="header">
           <div className='logo'>
             <img src="/assets/crypsup.png" alt="" />
-            <div className='headerheading'>CRYPSUP</div>
+            <div className='headerheading'>CrypSup</div>
           </div>
           <div>
             <Link to='/supporterdashboard'>Home</Link>
@@ -38,8 +38,12 @@ const supporterdashboard = () => {
           </div>
           <div>
             <button onClick={handlelogout} className='logoutbuttonsupporter'>LOGOUT</button>
+            <button onClick={handlelogout} className='logoutbuttonsupporter'>CREATE YOUR WALLET</button>
           </div>
         </section>  
+        <section className='homepagesupporter'>
+          <img src="https://imgs.search.brave.com/MHL6ym9grJJe8E_YnKt0cZ588B3TbRIYo0nnCplOhYY/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQ4/NjkxMDA1Ni9waG90/by9oYW5kLWdpdmlu/Zy1oZWFydC1sb3Zl/LWhlbHAtc3VwcG9y/dC1raW5kbmVzcy53/ZWJwP2I9MSZzPTE3/MDY2N2Emdz0wJms9/MjAmYz11LTlya1dF/bnB3cl9GczFGODB3/cXNUR1ZTTVE0RUM1/QlRyQzJyTS1nbEpB/PQ" alt="" />
+        </section>
       </div>
     </>
   )

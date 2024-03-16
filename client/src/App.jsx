@@ -12,6 +12,7 @@ import Signinsupporter from './components/Supportter/Signinsupporter.jsx';
 import Supporterdashboard from './components/Supporterdashboard/supporterdashboard.jsx';
 import ProjectDetails from './components/projectpage/pojectpage.jsx';
 import Explorepage from './components/Explorepage/Explorepage.jsx';
+import Footer from './components/Footer/Footer.jsx'
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
           <Route path='/project/:projectId' element={<ProjectDetails/>} />
           <Route path='/explorepage'  element={<Explorepage/>} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
   )

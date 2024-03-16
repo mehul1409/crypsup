@@ -70,13 +70,13 @@ const ProjectDetails = () => {
         <Link to='/explorepage'>GO BACK</Link>
       </div>
       </div>
-      <div className="projectdetaildiv">
+      <div className="projectsdetaildiv">
         <h2>{projectDetails.title}</h2>
         <p>{projectDetails.body}</p>
         <div className="comment">
           <form onSubmit={handlesubmit}>
             <input type="text" placeholder='write your comment here!' onChange={(e) => setcomment(e.target.value)} />
-            <input type="submit" />
+            <input type="submit"/>
           </form>
         </div>
       </div>
