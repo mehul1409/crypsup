@@ -1,6 +1,7 @@
 import express from 'express';
 import { Project } from '../models/project.js';
 import jwt from 'jsonwebtoken';
+import { User } from '../models/user.js';
 
 const projectrouter = express.Router();
 
@@ -19,21 +20,24 @@ const extractEmailFromToken = (localstorageToken) => {
 };
 
 projectrouter.post('/addproject', async (req, res) => {
-    const { title, body, token } = req.body;
+  const { title, body, token } = req.body;
 
-    const userEmail = extractEmailFromToken(token);
-    if (!userEmail) {
-      return res.status(401).json({ error: 'Unauthorized' });
-    }
+  const userEmail = extractEmailFromToken(token);
+  const user = await User.findOne({ email: userEmail });
+  const walletaddress = user.walletaddress;
+  if (!userEmail) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
 
-    const newproject = new Project({
-        title,
-        body,
-        createdBy: userEmail
-    })
+  const newproject = new Project({
+    title,
+    body,
+    createdBy: userEmail,
+    walletaddressofuser:walletaddress
+  })
 
-    await newproject.save();
-    return res.json({ status: true, message: "record registered!" });
+  await newproject.save();
+  return res.json({ status: true, message: "record registered!" });
 })
 
 const extractEmailFromTokenToFetchProjects = (req) => {
@@ -58,7 +62,7 @@ projectrouter.get('/', async (req, res) => {
     res.json(projects);
   } catch (error) {
     console.error('Error fetching projects:', error);
-    res.status(500).json({ error: 'Internal Server Error' }); 
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
@@ -69,7 +73,7 @@ projectrouter.get('/getallproject', async (req, res) => {
     res.json(projects);
   } catch (error) {
     console.error('Error fetching projects:', error);
-    res.status(500).json({ error: 'Internal Server Error' }); 
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
@@ -81,11 +85,11 @@ projectrouter.get('/:ProjectId', async (req, res) => {
     res.json(projects);
   } catch (error) {
     console.error('Error fetching projects:', error);
-    res.status(500).json({ error: 'Internal Server Error' }); 
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 
 })
 
-export {projectrouter};
+export { projectrouter };
 
 

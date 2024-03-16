@@ -103,3 +103,12 @@ h2 {
 .goback:hover {
   transform: scale(1.1);
 }
+
+.cw a{
+  text-decoration: none;
+  color:white;
+}
+
+.cw{
+  margin-left:2%;
+}

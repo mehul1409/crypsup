@@ -7,6 +7,7 @@ const Signup = () => {
     const [username, setusername] = useState('');
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
+    const [walletaddress, setwalletaddress] = useState('');
 
     const navigate = useNavigate();
 
@@ -17,6 +18,7 @@ const Signup = () => {
             username,
             email,
             password,
+            walletaddress,
         }).then(response =>{
             if(response.data.status){
             navigate('/login')
@@ -35,6 +37,9 @@ const Signup = () => {
 
                 <label htmlFor="email">Email:</label>
                 <input type="email" placeholder='email' onChange={(e) => setemail(e.target.value)} />
+
+                <label htmlFor="walletaddress">Wallet Address::</label>
+                <input type="text" placeholder='Your Metamask Wallet Address' onChange={(e) => setwalletaddress(e.target.value)} />
 
                 <label htmlFor="password">Password:</label>
                 <input type="password" placeholder='password' onChange={(e) => setpassword(e.target.value)} />

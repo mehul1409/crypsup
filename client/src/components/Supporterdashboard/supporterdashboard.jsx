@@ -37,7 +37,7 @@ const supporterdashboard = () => {
             <a href='#about'>About</a>
           </div>
           <div className='connectwallet'>
-            <a href=''>CONNECT YOUR WALLET</a>
+            <a href='http://localhost:1234' target='_blank'>CONNECT YOUR WALLET</a>
           </div>
           <div>
             <button onClick={handlelogout} className='logoutbuttonsupporter'>LOGOUT</button>

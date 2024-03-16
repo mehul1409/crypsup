@@ -7,7 +7,7 @@ import nodemailer from 'nodemailer';
 const userrouter = express.Router();
 
 userrouter.post('/signup', async (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, email, password, walletaddress } = req.body;
     const user = await User.findOne({ email });
 
     if (user) {
@@ -19,6 +19,7 @@ userrouter.post('/signup', async (req, res) => {
         username,
         email,
         password: hashedpassword,
+        walletaddress
     })
 
     await newuser.save();

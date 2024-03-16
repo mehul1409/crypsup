@@ -40,6 +40,7 @@ const ProjectDetails = () => {
     try {
       const response = await Axios.get(`http://localhost:3000/username/${projectId}`);
       setProjectDetails(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error('Error fetching project details:', error);
     }
@@ -58,6 +59,16 @@ const ProjectDetails = () => {
     return <div>Loading...</div>;
   }
 
+  const copyToClipboard = () => {
+    const textField = document.createElement('textarea');
+    textField.innerText = projectDetails.walletaddressofuser;
+    document.body.appendChild(textField);
+    textField.select();
+    document.execCommand('copy');
+    textField.remove();
+    alert('Wallet address copied to clipboard!');
+  };
+
   return (
     <div className='project-details'>
       <div className="exploreheader">
@@ -73,6 +84,10 @@ const ProjectDetails = () => {
       <div className="projectsdetaildiv">
         <h2>{projectDetails.title}</h2>
         <p>{projectDetails.body}</p>
+        <p>Wallet Address: {projectDetails.walletaddressofuser}</p>
+        <button onClick={copyToClipboard}>Copy Wallet Address</button>
+        <button className='cw'><a href="http://localhost:1234">CONNECT WALLET</a></button>
+
         <div className="comment">
           <form onSubmit={handlesubmit}>
             <input type="text" placeholder='write your comment here!' onChange={(e) => setcomment(e.target.value)} />
