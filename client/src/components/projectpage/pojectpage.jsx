@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import './projectpage.css';
+import { Link } from 'react-router-dom';
 
 const ProjectDetails = () => {
   const { projectId } = useParams();
@@ -59,6 +60,16 @@ const ProjectDetails = () => {
 
   return (
     <div className='project-details'>
+      <div className="exploreheader">
+      <div className='logo'>
+        <img src="/assets/crypsup.png" alt="" />
+        <div className='headerheading'>CRYPSUP</div>
+      </div>
+      <div className="exploreheading">CONTENT DETAILPAGE</div>
+      <div className='goback'>
+        <Link to='/explorepage'>GO BACK</Link>
+      </div>
+      </div>
       <div className="projectdetaildiv">
         <h2>{projectDetails.title}</h2>
         <p>{projectDetails.body}</p>
@@ -69,11 +80,11 @@ const ProjectDetails = () => {
           </form>
         </div>
       </div>
-      <div className="projectcomments">
+      <div className="projectcommentsdiv">
         {projectcomments ? (
           projectcomments.map((project, index) => (
-            <div key={index} className='projectbox'>
-              <div className='projecttitle'>{project.comment}</div>
+            <div key={index} className='projectcommentbox'>
+              <div className='projeccomment'>{project.comment}</div>
             </div>
           ))
         ) : (

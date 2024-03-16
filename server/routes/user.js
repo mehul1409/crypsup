@@ -44,7 +44,7 @@ userrouter.post('/login', async (req, res) => {
     }, "mehulbansal");
 
     res.cookie('token', token, { httpOnly: true, message: 360000 });
-    return res.json({ status: true, message: "login successfully!",token });
+    return res.json({ status: true, message: "login successfully!", token });
 
 })
 
@@ -92,24 +92,24 @@ userrouter.post('/resetpassword/:token', async (req, res) => {
 
     const token = req.params.token;
     const { password } = req.body;
- 
+
     try {
         const decoded = await jwt.verify(token, 'jwttoken');
         const id = decoded.id;
 
         const hashedpassword = await bcrypt.hash(password, 10)
-        await User.findByIdAndUpdate({_id:id},{password:hashedpassword})
+        await User.findByIdAndUpdate({ _id: id }, { password: hashedpassword })
 
-        return res.json({status:true,message:"updated successfully!"});
+        return res.json({ status: true, message: "updated successfully!" });
 
     } catch (err) {
-        return res.json({message:"invalid token"})
+        return res.json({ message: "invalid token" })
     }
 })
 
-userrouter.get('/logout',(req,res)=>{
+userrouter.get('/logout', (req, res) => {
     res.clearCookie('token');
-    return res.json({status:true});
+    return res.json({ status: true });
 })
 
 export { userrouter }

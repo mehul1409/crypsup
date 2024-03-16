@@ -6,7 +6,7 @@ const Homepage = () => {
   return (
 
     <div className="container">
-       <div class="ethereum-bg"></div>
+       <div className="ethereum-bg"></div>
       <div className="center-content">
         <img src="/assets/crypsup.png" alt="CrypSup Icon" className="icon" />
         <h1 className="project-name">CrypSup</h1>
@@ -17,7 +17,6 @@ const Homepage = () => {
         </div>
       </div>
     </div>
-
   )
 }
 

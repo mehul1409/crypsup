@@ -1,28 +1,12 @@
-import { useNavigate, Link } from 'react-router-dom'
-import React, { useState, useEffect } from 'react';
-import './supporterdashboard.css';
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import './supporterdashboard.css'
 
-import axios from 'axios';
-
-const Supporterdashboard = () => {
+const supporterdashboard = () => {
 
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
-
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
-  const fetchProjects = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/username/getallproject');
-      setProjects(response.data);
-    } catch (error) {
-      console.error('Error fetching projects:', error);
-    }
-  };
 
   const handlelogout = () => {
     axios.get('http://localhost:3000/auth/logout')
@@ -34,22 +18,31 @@ const Supporterdashboard = () => {
         console.log(err);
       })
   }
+
   return (
-    <div className='userdashboard'>
-      <button onClick={handlelogout} className='logoutbutton'>logout</button>
-      <div className='userproject'>
-          {projects.map(project => (
-            <Link key={project._id} to={`/project/${project._id}`} className='projectlink'>
-            <div className='projectbox'>
-              <div className='projecttitle'>{project.title}</div>
-              <div className='projectbody'>{project.body}</div>
-            </div>
-          </Link>
-          ))}
+    <>
+      <div className="homesection">
+        <section className="header">
+          <div className='logo'>
+            <img src="/assets/crypsup.png" alt="" />
+            <div className='headerheading'>CRYPSUP</div>
+          </div>
+          <div>
+            <Link to='/supporterdashboard'>Home</Link>
+          </div>
+          <div>
+            <Link to='/explorepage'>Explore</Link>
+          </div>
+          <div>
+            <a href='#about'>About</a>
+          </div>
+          <div>
+            <button onClick={handlelogout} className='logoutbuttonsupporter'>LOGOUT</button>
+          </div>
+        </section>  
       </div>
-    </div>
+    </>
   )
 }
 
-export default Supporterdashboard
-
+export default supporterdashboard
