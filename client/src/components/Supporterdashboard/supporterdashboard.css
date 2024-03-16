@@ -42,6 +42,12 @@
     border-radius: 10%;
 }
 
+.connectwallet a:hover{
+    padding: 1% 0%; 
+    background-color: #007bff;
+    color:white;
+}
+
 .homepagesupporter {
     position: relative;
     width: 100%;
