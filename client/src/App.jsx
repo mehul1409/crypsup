@@ -10,6 +10,7 @@ import CreateProject from './components/CreateProject/CreateProject.jsx';
 import Signupsupporter from './components/Supportter/Signupsupporter.jsx';
 import Signinsupporter from './components/Supportter/Signinsupporter.jsx';
 import Supporterdashboard from './components/Supporterdashboard/supporterdashboard.jsx';
+import ProjectDetails from './components/projectpage/pojectpage.jsx';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/supportersignup' element={<Signupsupporter />} />
           <Route path='/Signinsupporter' element={<Signinsupporter />} />
           <Route path='/supporterdashboard' element={<Supporterdashboard />} />
+          <Route path='/project/:projectId' element={<ProjectDetails/>} />
         </Routes>
       </BrowserRouter>
     </>

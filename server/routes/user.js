@@ -105,7 +105,6 @@ userrouter.post('/resetpassword/:token', async (req, res) => {
     } catch (err) {
         return res.json({message:"invalid token"})
     }
-
 })
 
 userrouter.get('/logout',(req,res)=>{

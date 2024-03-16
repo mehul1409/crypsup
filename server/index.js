@@ -6,6 +6,7 @@ import { userrouter } from './routes/user.js';
 import { supporterrouter } from './routes/supporter.js'
 import { projectrouter } from './routes/project.js';
 import cors from 'cors';
+import { commentrouter } from './routes/comment.js';
 
 const PORT = process.env.PORT || 3000;
 
@@ -25,6 +26,7 @@ app.use(cors({
 app.use('/auth', userrouter);
 app.use('/username', projectrouter);
 app.use('/auth', supporterrouter);
+app.use('/comment',commentrouter)
 
 app.listen(PORT, (err) => {
     if (err) {

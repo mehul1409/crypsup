@@ -1,5 +1,6 @@
 import { useNavigate, Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
+import './supporterdashboard.css';
 
 import axios from 'axios';
 
@@ -38,10 +39,12 @@ const Supporterdashboard = () => {
       <button onClick={handlelogout} className='logoutbutton'>logout</button>
       <div className='userproject'>
           {projects.map(project => (
-            <div key={project._id} className='projectbox'>
+            <Link key={project._id} to={`/project/${project._id}`} className='projectlink'>
+            <div className='projectbox'>
               <div className='projecttitle'>{project.title}</div>
               <div className='projectbody'>{project.body}</div>
             </div>
+          </Link>
           ))}
       </div>
     </div>

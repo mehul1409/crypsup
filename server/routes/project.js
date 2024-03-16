@@ -73,6 +73,19 @@ projectrouter.get('/getallproject', async (req, res) => {
   }
 });
 
+projectrouter.get('/:ProjectId', async (req, res) => {
+
+  const ProjectId = req.params.ProjectId;
+  try {
+    const projects = await Project.findById(ProjectId);
+    res.json(projects);
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+    res.status(500).json({ error: 'Internal Server Error' }); 
+  }
+
+})
+
 export {projectrouter};
 
 

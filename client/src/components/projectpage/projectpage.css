@@ -1,0 +1,19 @@
+.project-details {
+    background-color: #585656;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(27, 23, 23, 0.1);
+  }
+  
+  .project-details h2 {
+    color: #f6e6e6;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .project-details p {
+    color: #fbf3f3;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
