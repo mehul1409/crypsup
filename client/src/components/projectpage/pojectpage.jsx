@@ -6,27 +6,33 @@ import './projectpage.css';
 const ProjectDetails = () => {
   const { projectId } = useParams();
   const [projectDetails, setProjectDetails] = useState(null);
+  const [projectcomments, setprojectcomments] = useState(null);
   const [comment, setcomment] = useState('');
 
   const navigate = useNavigate();
 
-  const handlesubmit = (e) =>{
+  const handlesubmit = (e) => {
     e.preventDefault();
-
-    Axios.post('http://localhost:3000/comment/',{
-        comment,
-        projectId,
-    }).then(response =>{
-        if(response.data.status){
+    const token = localStorage.getItem('supportertoken');
+    Axios.post('http://localhost:3000/comment/', {
+      comment,
+      projectId,
+      token,
+    }).then(response => {
+      if (response.data.status) {
         navigate('/supporterdashboard')
-        }
-    }).catch(err=>{
-        console.log(err);
+      }
+    }).catch(err => {
+      console.log(err);
     })
-}
+  }
 
   useEffect(() => {
     fetchProjectDetails();
+  }, [projectId]);
+
+  useEffect(() => {
+    fetchProjectComments();
   }, [projectId]);
 
   const fetchProjectDetails = async () => {
@@ -38,19 +44,41 @@ const ProjectDetails = () => {
     }
   };
 
+  const fetchProjectComments = async () => {
+    try {
+      const response = await Axios.get(`http://localhost:3000/comment/${projectId}`);
+      setprojectcomments(response.data);
+    } catch (error) {
+      console.error('Error fetching project comments:', error);
+    }
+  };
+
   if (!projectDetails) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className='project-details'>
-      <h2>{projectDetails.title}</h2>
-      <p>{projectDetails.body}</p>
-      <div className="comment">
-        <form onSubmit={handlesubmit}>
-        <input type="text" placeholder='write your comment here!' onChange={(e)=> setcomment(e.target.value)}/>
-         <input type="submit" />
-        </form>
+      <div className="projectdetaildiv">
+        <h2>{projectDetails.title}</h2>
+        <p>{projectDetails.body}</p>
+        <div className="comment">
+          <form onSubmit={handlesubmit}>
+            <input type="text" placeholder='write your comment here!' onChange={(e) => setcomment(e.target.value)} />
+            <input type="submit" />
+          </form>
+        </div>
+      </div>
+      <div className="projectcomments">
+        {projectcomments ? (
+          projectcomments.map((project, index) => (
+            <div key={index} className='projectbox'>
+              <div className='projecttitle'>{project.comment}</div>
+            </div>
+          ))
+        ) : (
+          <div>No comments yet.</div>
+        )}
       </div>
     </div>
   );
