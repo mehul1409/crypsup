@@ -17,6 +17,8 @@ const Signinsupporter = () => {
             email,
             password,
         }).then(response => {
+            const { token } = response.data;
+            localStorage.setItem('supportertoken', token);
             if (response.data.status) {
                 navigate('/supporterdashboard')
             }
